@@ -1,1 +1,85 @@
-Hello, world
+<!DOCTYPE html>
+<html>
+<head>
+    <title>"Mail Link to this Page" Bookmarklet</title>
+    <link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+    <script>
+        $(function () {
+            var script = $('pre').text();
+
+            /*
+             Ghetto minification - this is fine for now. Make a call to the Google Closure Compiler API if we need to
+             get fancier in the future.
+             */
+
+            var bookmarklet = 'javascript:' + script.split(' ').join('');
+
+            $('#bookmarklet').attr('href', bookmarklet);
+            $('#bookmarklet-source').text(bookmarklet);
+        });
+    </script>
+
+    <script>
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-22036475-1']);
+        _gaq.push(['_setDomainName', 'bryanirace.com']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+
+    <style>
+        #byline {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="hero-unit">
+        <h1>Mail Link to this Page</h1>
+
+        <p>Simple bookmarklet for sending a link to the current page via email. Most RSS/Twitter clients
+            include this functionality; why not add it to your browser?</p>
+
+        <p>On a computer, drag this button to your browser's bookmark bar:</p>
+
+        <p><a id="bookmarklet" class="btn primary large">Mail Link</a></p>
+
+        <p>Unfortunately there's no easy way to install bookmarklets on iOS. To do so, copy the text below, create a new
+            bookmark, and paste this as the URL:</p>
+
+        <textarea id="bookmarklet-source" class="span10" rows="3"></textarea>
+
+        <p><a href="https://twitter.com/share" class="twitter-share-button" data-via="irace">Tweet</a></p>
+
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+    </div>
+
+    <div>
+        <p>Simple, huh? If you think of a way to improve, please fork the following Gist or
+            <a href="mailto:bryan.irace@gmail.com?subject=Mail%20Link%20Bookmarklet">let me know</a> what you think.</p>
+        
+        <script src="https://gist.github.com/1441404.js"></script>
+        
+        <p id="byline">By <a href="http://bryanirace.com">Bryan Irace</a></p>
+
+    </div>        
+        
+        <a href="http://github.com/irace/mail-link-bookmarklet"><img
+                style="position: absolute; top: 0; right: 0; border: 0;"
+                src="https://a248.e.akamai.net/assets.github.com/img/e6bef7a091f5f3138b8cd40bc3e114258dd68ddf/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67"
+                alt="Fork me on GitHub"></a>
+</div>
+</body>
+</html>
