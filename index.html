@@ -7,14 +7,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 
     <script>
-        $(function () {
+        $(function() {
             var script = $('pre').text();
 
             /*
              Ghetto minification - this is fine for now. Make a call to the Google Closure Compiler API if we need to
              get fancier in the future.
              */
-
             var bookmarklet = 'javascript:' + script.split(' ').join('');
 
             $('#bookmarklet').attr('href', bookmarklet);
@@ -41,6 +40,10 @@
     <style>
         #byline {
             text-align: center;
+        }
+
+        textarea {
+            margin-bottom: 2%;
         }
     </style>
 </head>
